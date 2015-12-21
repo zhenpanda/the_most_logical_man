@@ -1,4 +1,5 @@
 var main = function() {
+	
 	var makeGrid = function(size) {
 		//make a symmetric grid
 		array = [];
@@ -32,7 +33,7 @@ var main = function() {
 	var animSpeed = 50;	//animation speed
 	//end
 
-	$(document).keyup(function(keystroke) {
+	$(document).keydown(function(keystroke) {
 		//capture keystrokes and move the character in that direction
 		switch(keystroke.which) {
 			case 38:
