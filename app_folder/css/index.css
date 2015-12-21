@@ -1,3 +1,7 @@
+.background img {
+	position: absolute;
+}
+
 .main_char {
 	position: relative;
 	width: 50px;
