@@ -25,6 +25,7 @@ var main = function() {
 	var obstacles = {
 		'home': makeObstacle(gridArray, 2, 4, 2, 4)
 	}
+	var animSpeed = 100;
 
 	console.log(gridArray);
 
@@ -35,28 +36,28 @@ var main = function() {
 				var newPos = [charPosition[0] - 1, charPosition[1]];
 				if (charPosition[0] === 0 || gridArray[newPos[0]][newPos[1]]) { break; };
 				charPosition[0] -= 1;
-				$('.main_char').animate({top: '-=50'});
+				$('.main_char').animate({top: '-=50'}, animSpeed);
 				break;
 			case 40:
 				//down
 				var newPos = [charPosition[0] + 1, charPosition[1]];
 				if (charPosition[0] === girdSize - 1 || gridArray[newPos[0]][newPos[1]]) { break; };
 				charPosition[0] += 1;
-				$('.main_char').animate({top: '+=50'});
+				$('.main_char').animate({top: '+=50'}, animSpeed);
 				break;
 			case 37:
 				//left
 				var newPos = [charPosition[0], charPosition[1] - 1];
 				if (charPosition[1] === 0 || gridArray[newPos[0]][newPos[1]]) { break; };
 				charPosition[1] -= 1;
-				$('.main_char').animate({left: '-=50'});
+				$('.main_char').animate({left: '-=50'}, animSpeed);
 				break;
 			case 39:
 				//right
 				var newPos = [charPosition[0], charPosition[1] + 1];
 				if (charPosition[1] === girdSize - 1 || gridArray[newPos[0]][newPos[1]]) { break; };
 				charPosition[1] += 1;
-				$('.main_char').animate({left: '+=50'});
+				$('.main_char').animate({left: '+=50'}, animSpeed);
 				break;
 			default:
 				break;
