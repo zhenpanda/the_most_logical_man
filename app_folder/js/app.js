@@ -35,11 +35,14 @@ var main = function() {
 	//end
 
 	$.getJSON('data/districts.json', function(data) {
-		homeDistrict = data[0];
-		gridSize = homeDistrict.gridSize;
-		gridArray = makeGrid(gridSize);
+		//get json data
+		homeDistrict = data[0];	//first item in the json is the home district
+		gridSize = homeDistrict.gridSize;	//get the grid size
+		gridArray = makeGrid(gridSize);		//build 2d array
 
 		for (index in homeDistrict.buildings) {
+			//for each entrance, get start and end of rectangle, then the interactive point
+			//interactive point should be on the edge
 			start = homeDistrict.buildings[index].start;
 			end = homeDistrict.buildings[index].end;
 			entrance = homeDistrict.buildings[index].entrance;

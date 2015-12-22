@@ -6,8 +6,8 @@
 			{
 				"buildingName" : "house1",
 				"start" : [2, 2],
-				"end" : [4, 4],
-				"entrance" : [2, 2]
+				"end" : [5, 5],
+				"entrance" : [4, 3]
 			}
 		]
 	}
