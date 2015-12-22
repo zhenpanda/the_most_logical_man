@@ -1,0 +1,14 @@
+[
+	{
+		"name" : "Home District",
+		"gridSize" : 12,
+		"buildings" : [
+			{
+				"buildingName" : "house1",
+				"start" : [2, 2],
+				"end" : [4, 4],
+				"entrance" : [2, 2]
+			}
+		]
+	}
+]

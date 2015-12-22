@@ -12,10 +12,15 @@ var main = function() {
 		return array;
 	}
 
-	var makeObstacle = function(inputArray, startx, endx, starty, endy) {
+	var makeObstacle = function(inputArray, start, end, entrance) {
+		var startx = start[0];
+		var starty = start[1];
+		var endx = end[0];
+		var endy = end[1];
 		//takes an array as input and sets true to areas that the player cannot move to
 		for (var i = startx; i < endx; i++ ) {
 			for (var j = starty; j < endy; j++) {
+				if (i === entrance[0] && j === entrance[1]) { continue; } //skip if it's interactive
 				inputArray[i][j] = true;
 			}
 		}
@@ -24,14 +29,23 @@ var main = function() {
 
 	//store the following in json
 	//start
-	var girdSize = 12;
-	var gridArray = makeGrid(girdSize);
 	var charPosition = [0, 0];	//x, y position of the main character
-	var obstacles = {
-		'home': makeObstacle(gridArray, 2, 4, 2, 4)
-	}
+
 	var animSpeed = 50;	//animation speed
 	//end
+
+	$.getJSON('data/districts.json', function(data) {
+		homeDistrict = data[0];
+		gridSize = homeDistrict.gridSize;
+		gridArray = makeGrid(gridSize);
+
+		for (index in homeDistrict.buildings) {
+			start = homeDistrict.buildings[index].start;
+			end = homeDistrict.buildings[index].end;
+			entrance = homeDistrict.buildings[index].entrance;
+			makeObstacle(gridArray, start, end, entrance);
+		}
+	});
 
 	$(document).keydown(function(keystroke) {
 		//capture keystrokes and move the character in that direction
@@ -47,7 +61,7 @@ var main = function() {
 			case 40:
 				//down
 				var newPos = [charPosition[0] + 1, charPosition[1]];
-				if (charPosition[0] === girdSize - 1 || gridArray[newPos[0]][newPos[1]]) { break; };	//gridSize is used to determine the max
+				if (charPosition[0] === gridSize - 1 || gridArray[newPos[0]][newPos[1]]) { break; };	//gridSize is used to determine the max
 				charPosition[0] += 1;
 				$('.main_char').animate({top: '+=50'}, animSpeed);
 				break;
@@ -61,7 +75,7 @@ var main = function() {
 			case 39:
 				//right
 				var newPos = [charPosition[0], charPosition[1] + 1];
-				if (charPosition[1] === girdSize - 1 || gridArray[newPos[0]][newPos[1]]) { break; };
+				if (charPosition[1] === gridSize - 1 || gridArray[newPos[0]][newPos[1]]) { break; };
 				charPosition[1] += 1;
 				$('.main_char').animate({left: '+=50'}, animSpeed);
 				break;
