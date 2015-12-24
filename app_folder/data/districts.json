@@ -2,6 +2,7 @@
 	{
 		"name" : "Home District",
 		"gridSize" : 12,
+		"charStartPos": [0, 0],
 		"buildings" : [
 			{
 				"buildingName" : "house1",
