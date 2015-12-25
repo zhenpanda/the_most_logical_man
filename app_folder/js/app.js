@@ -30,7 +30,6 @@ var main = function() {
 		}
 	}
 
-
 	$.getJSON('data/districts.json', function(data) {
 		//get json data
 		var homeDistrict = data[0];	//first item in the json is the home district
@@ -38,7 +37,6 @@ var main = function() {
 		currentZone = homeZone;
 		charPosition = homeDistrict.charStartPos;
 	});
-
 	var animSpeed = 50;	//animation speed
 
 	$(document).keydown(function(keystroke) {
