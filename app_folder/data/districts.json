@@ -8,9 +8,9 @@
 			{
 				"buildingName" : "house1",
 				"start" : [2, 2],
-				"end" : [5, 5],
+				"end" : [5, 6],
 				"entrance" : [4, 3],
-				"imageUrl" : ""
+				"imageUrl" : "img/sample_building.png"
 			},
 			{
 				"buildingName" : "house2",
