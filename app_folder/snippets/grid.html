@@ -1,9 +1,9 @@
 <div class="grid_container">
-	<div class="grid_row" ng-repeat="x in currentZone">
-		<div class="grid_cell" style="height: {{gridSpacing}}px; width: {{gridSpacing}}px;" ng-repeat="y in currentZone"></div>
+	<div class="grid_row" ng-repeat="x in zoneArray">
+		<div class="grid_cell" style="height: {{gridSpacing}}px; width: {{gridSpacing}}px;" ng-repeat="y in zoneArray"></div>
 	</div>
 
-	<div class="buildings" ng-repeat="building in currentDistrict.buildings" style="top: {{building.start[0]*gridSpacing+8}}px; left: {{building.start[1]*gridSpacing+8}}px;" ng-if="building.imageUrl.length > 0">
+	<div class="buildings" ng-repeat="building in currentDistrict.buildings" style="top: {{building.start[0]*gridSpacing}}px; left: {{building.start[1]*gridSpacing}}px;" ng-if="building.imageUrl.length > 0">
 		<img style="height: {{(building.end[0]-building.start[0])*gridSpacing}}px; width: {{(building.end[1]-building.start[1])*gridSpacing}}px;" ng-src="{{building.imageUrl}}"/>
 	</div>
 </div>
