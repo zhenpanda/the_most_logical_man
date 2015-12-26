@@ -1,5 +1,9 @@
 <div class="grid_container">
 	<div class="grid_row" ng-repeat="x in currentZone">
-		<div class="grid_column" ng-repeat="y in currentZone"></div>
+		<div class="grid_cell" style="height: {{gridSpacing}}px; width: {{gridSpacing}}px;" ng-repeat="y in currentZone"></div>
+	</div>
+
+	<div class="building" ng-repeat="building in currentDistrict.buildings" style="top: {{building.start[0]*gridSpacing}}px; left: {{building.start[1]*gridSpacing}}px;">
+		
 	</div>
 </div>

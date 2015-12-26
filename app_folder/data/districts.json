@@ -2,19 +2,22 @@
 	{
 		"name" : "Home District",
 		"gridSize" : 12,
+		"gridSpacing": 50,
 		"charStartPos": [0, 0],
 		"buildings" : [
 			{
 				"buildingName" : "house1",
 				"start" : [2, 2],
 				"end" : [5, 5],
-				"entrance" : [4, 3]
+				"entrance" : [4, 3],
+				"imageUrl" : ""
 			},
 			{
 				"buildingName" : "house2",
-				"start" : [7, 7],
+				"start" : [7, 6],
 				"end" : [11, 11],
-				"entrance" : [6, 8]
+				"entrance" : [6, 8],
+				"imageUrl" : ""
 			}
 		]
 	}
