@@ -4,6 +4,6 @@
 	</div>
 
 	<div class="building" ng-repeat="building in currentDistrict.buildings" style="top: {{building.start[0]*gridSpacing}}px; left: {{building.start[1]*gridSpacing}}px;">
-		
+		<img ng-source="{{building.imageUrl}}"/>
 	</div>
 </div>
