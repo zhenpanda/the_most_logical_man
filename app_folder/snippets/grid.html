@@ -3,7 +3,7 @@
 		<div class="grid_cell" style="height: {{gridSpacing}}px; width: {{gridSpacing}}px;" ng-repeat="y in currentZone"></div>
 	</div>
 
-	<div class="building" ng-repeat="building in currentDistrict.buildings" style="top: {{building.start[0]*gridSpacing}}px; left: {{building.start[1]*gridSpacing}}px;">
-		<img ng-source="{{building.imageUrl}}"/>
+	<div class="buildings" ng-repeat="building in currentDistrict.buildings" style="top: {{building.start[0]*gridSpacing+8}}px; left: {{building.start[1]*gridSpacing+8}}px;" ng-if="building.imageUrl.length > 0">
+		<img style="height: {{(building.end[0]-building.start[0])*gridSpacing}}px; width: {{(building.end[1]-building.start[1])*gridSpacing}}px;" ng-src="{{building.imageUrl}}"/>
 	</div>
 </div>
