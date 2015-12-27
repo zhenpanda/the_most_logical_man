@@ -6,13 +6,17 @@ app.controller('HomeController', ['zoneService', '$http', '$scope', function(zon
 		$scope.entrances = $scope.currentZone.entrances;
 		$scope.charPosition = $scope.currentDistrict.charStartPos;
 		$scope.gridSpacing = $scope.currentDistrict.gridSpacing;
+		$scope.charInBuilding = false;
 	});
 
 	checkEntry = function(coords) {
 		stringCoords = coords[0].toString() + coords[1].toString();
 		if (stringCoords in $scope.entrances) {
-			var house = $scope.entrances[stringCoords].buildingName;
-			$('#'+house).modal('toggle');
+			$scope.currentBuilding = $scope.entrances[stringCoords];
+			$scope.buildingArray = zoneService.building($scope.currentBuilding);
+			$scope.charInBuilding = true;
+			$scope.$apply();
+			//$('#display_building').modal('toggle');
 		}
 	}
 
@@ -36,6 +40,8 @@ app.controller('HomeController', ['zoneService', '$http', '$scope', function(zon
 				if ($scope.charPosition[0] === $scope.currentDistrict.gridSize - 1 || $scope.zoneArray[newPos[0]][newPos[1]]) { break; };	//$scope.currentZone.gridSize is used to determine the max
 				$scope.charPosition[0] += 1;
 				$('.main_char').animate({top: '+=' + $scope.gridSpacing}, animSpeed);
+				$scope.charInBuilding = false;
+				$scope.$apply();
 				break;
 			case 37:
 				//left

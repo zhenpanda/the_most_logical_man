@@ -1,0 +1,11 @@
+<div class="grid_container">
+	<div class="grid_row" ng-repeat="x in buildingArray.array track by $index">
+		<div class="grid_cell red" style="height: {{gridSpacing}}px; width: {{gridSpacing}}px;" ng-repeat="y in buildingArray.array[0] track by $index"></div>
+	</div>
+
+	<!--
+	<div class="buildings" ng-repeat="building in currentDistrict.buildings" style="top: {{building.start[0]*gridSpacing}}px; left: {{building.start[1]*gridSpacing}}px;" ng-if="building.imageUrl.length > 0">
+		<img style="height: {{(building.end[0]-building.start[0])*gridSpacing}}px; width: {{(building.end[1]-building.start[1])*gridSpacing}}px;" ng-src="{{building.imageUrl}}"/>
+	</div>
+	-->
+</div>

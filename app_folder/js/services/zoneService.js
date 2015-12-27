@@ -1,4 +1,4 @@
-app.factory('zoneService', ['$http', function($http) {
+app.factory('zoneService', function() {
 	return {
 		zone: function(zoneData) {
 			this.array = [];
@@ -36,6 +36,22 @@ app.factory('zoneService', ['$http', function($http) {
 				array: this.array,
 				entrances: this.entrances
 			}
+		},
+		building: function(buildingData) {
+			this.array = [];
+			start = buildingData.start;
+			end = buildingData.end;
+			width = end[0] - start[0];
+			height = end[1] - start[1];
+			for (var i = 0; i < width; i++) {
+				this.array.push([]);
+				for (var j = 0; j < height; j++) {
+					this.array[i].push(false);	//set false to areas the character can move to
+				}
+			}
+			return {
+				array: this.array
+			}
 		}
 	}
-}]);
+});

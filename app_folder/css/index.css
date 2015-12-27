@@ -26,3 +26,7 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
+
+.grid_cell.red {
+	background-color: red;
+}

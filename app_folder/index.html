@@ -12,17 +12,15 @@
 </head>
 <body ng-app="LogicalMan">
 
-	<div class="main">
+	<div class="main" ng-controller="HomeController">
 		<div class="container">
-			<div class="background" ng-controller="HomeController">
+			<div class="background">
 				<grid></grid>
 				<div class="main_char" style="width: {{gridSpacing}}px; height: {{gridSpacing}}px;"></div>
 			</div>
 
-			<div id="house1" class="modal fade" role="dialog">
-		  		<div class="modal-content">
-		  			<img src="img/sample_grid.png"/>
-		  		</div>
+			<div id="display_building" role="dialog" ng-show="charInBuilding == true">
+	  			<building></building>
 			</div>
 		</div>
 	</div>
@@ -33,6 +31,7 @@
 
 	<!--directives-->
 	<script type="text/javascript" src="js/directives/grid.js"></script>
+	<script type="text/javascript" src="js/directives/building.js"></script>
 
 	<!--controllers-->
 	<script type="text/javascript" src="js/controllers/HomeController.js"></script>
