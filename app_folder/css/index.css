@@ -1,9 +1,5 @@
-.background img {
-	position: absolute;
-}
-
 .buildings {
-	position: fixed;
+	position: absolute;
 }
 
 .main_char {
@@ -12,7 +8,7 @@
 }
 
 .grid_container {
-	position: fixed;
+	position: absolute;
 }
 
 .grid_row {
@@ -29,4 +25,8 @@
 	box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+}
+
+.grid_cell.red {
+	background-color: red;
 }

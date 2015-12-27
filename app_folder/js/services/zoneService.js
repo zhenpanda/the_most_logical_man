@@ -1,7 +1,8 @@
-app.factory('zoneService', ['$http', function($http) {
+app.factory('zoneService', function() {
 	return {
 		zone: function(zoneData) {
 			this.array = [];
+			this.entrances = {};
 			for (var i = 0; i < zoneData.gridSize; i++) {
 				this.array.push([]);
 				for (var j = 0; j < zoneData.gridSize; j++) {
@@ -23,12 +24,34 @@ app.factory('zoneService', ['$http', function($http) {
 				//takes an array as input and sets true to areas that the player cannot move to
 				for (var i = startx; i < endx; i++ ) {
 					for (var j = starty; j < endy; j++) {
-						if (i === entrance[0] && j === entrance[1]) { continue; } //skip if it's interactive
+						if (i === entrance[0] && j === entrance[1]) {
+							this.entrances[i.toString() + j.toString()] = zoneData.buildings[index];
+							continue;
+						} //skip if it's interactive
 						this.array[i][j] = true;
 					}
 				}
 			}
-			return this.array;
+			return {
+				array: this.array,
+				entrances: this.entrances
+			}
+		},
+		building: function(buildingData) {
+			this.array = [];
+			start = buildingData.start;
+			end = buildingData.end;
+			width = end[0] - start[0];
+			height = end[1] - start[1];
+			for (var i = 0; i < width; i++) {
+				this.array.push([]);
+				for (var j = 0; j < height; j++) {
+					this.array[i].push(false);	//set false to areas the character can move to
+				}
+			}
+			return {
+				array: this.array
+			}
 		}
 	}
-}]);
+});

@@ -16,8 +16,8 @@
 				"buildingName" : "house2",
 				"start" : [7, 6],
 				"end" : [11, 11],
-				"entrance" : [6, 8],
-				"imageUrl" : ""
+				"entrance" : [10, 8],
+				"imageUrl" : "img/sample_building.png"
 			}
 		]
 	}
